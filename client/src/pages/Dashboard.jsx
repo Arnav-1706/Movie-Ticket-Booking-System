@@ -13,7 +13,7 @@ const Dashboard = () => {
         const fetchMovies = async () => {
             try {
                 // In a real app, pass region as query param
-                const res = await axios.get('http://localhost:5000/api/movies');
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/movies`);
                 setMovies(res.data);
                 setLoading(false);
             } catch (error) {

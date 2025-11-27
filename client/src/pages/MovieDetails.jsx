@@ -15,10 +15,10 @@ const MovieDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const movieRes = await axios.get(`http://localhost:5000/api/movies/${id}`);
+                const movieRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/movies/${id}`);
                 setMovie(movieRes.data);
 
-                const showsRes = await axios.get(`http://localhost:5000/api/shows/movie/${id}?region=${region}`);
+                const showsRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/shows/movie/${id}?region=${region}`);
                 setShows(showsRes.data);
 
                 setLoading(false);

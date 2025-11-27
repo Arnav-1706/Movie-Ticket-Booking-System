@@ -14,7 +14,7 @@ const SeatSelection = () => {
     useEffect(() => {
         const fetchShow = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/shows/${showId}`);
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/shows/${showId}`);
                 setShow(res.data);
                 setLoading(false);
             } catch (error) {
@@ -61,7 +61,7 @@ const SeatSelection = () => {
             // To make this work without login, I should probably have a "Guest Checkout" that creates a user.
             // But for now, let's just try to book.
 
-            await axios.post('http://localhost:5000/api/bookings', bookingData);
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, bookingData);
             navigate('/booking/success');
         } catch (error) {
             alert('Booking failed: ' + (error.response?.data?.message || error.message));
