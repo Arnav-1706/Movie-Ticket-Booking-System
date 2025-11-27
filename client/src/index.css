@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@source "../src/**/*.{html,js,jsx,ts,tsx}";
+
+body {
+  background-color: theme("colors.gray.900");
+  color: theme("colors.white");
+}
